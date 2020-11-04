@@ -28,7 +28,7 @@
     props: {
       id: {}
     },
-    name: "CategoryEdit",
+    name: "ItemEdit",
     data() {
       return {
         model: {},

@@ -103,7 +103,7 @@
     props: {
       id: {}
     },
-    name: "CategoryEdit",
+    name: "HeroEdit",
     data() {
       return {
         model: {

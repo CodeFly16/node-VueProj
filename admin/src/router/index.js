@@ -21,6 +21,10 @@ const routes = [
       {path: '/heroes/create', component: () => import( '../views/Hero/HeroEdit.vue')},
       {path: '/heroes/list', component: () => import( '../views/Hero/HeroList.vue')},
       {path: '/heroes/edit/:id', component: () => import( '../views/Hero/HeroEdit.vue'), props: true},
+
+      {path: '/articles/create', component: () => import( '../views/Article/ArticleEdit.vue')},
+      {path: '/articles/list', component: () => import( '../views/Article/ArticleList.vue')},
+      {path: '/articles/edit/:id', component: () => import( '../views/Article/ArticleEdit.vue'), props: true},
     ]
   },
 ]
