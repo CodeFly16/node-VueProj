@@ -25,6 +25,10 @@ const routes = [
       {path: '/articles/create', component: () => import( '../views/Article/ArticleEdit.vue')},
       {path: '/articles/list', component: () => import( '../views/Article/ArticleList.vue')},
       {path: '/articles/edit/:id', component: () => import( '../views/Article/ArticleEdit.vue'), props: true},
+
+      {path: '/ads/create', component: () => import( '../views/Advertisement/AdEdit.vue')},
+      {path: '/ads/list', component: () => import( '../views/Advertisement/AdList.vue')},
+      {path: '/ads/edit/:id', component: () => import( '../views/Advertisement/AdEdit.vue'), props: true},
     ]
   },
 ]

@@ -5,6 +5,7 @@ import store from './store'
 import './plugins/element.js'
 
 Vue.config.productionTip = false
+import './style.css'
 
 import http from "./request/index"
 
