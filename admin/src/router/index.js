@@ -1,27 +1,32 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Main from '../views/Main.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'main',
+    component: Main,
+    children: [
+      {path: '/categories/create', component: () => import( '../views/Category/CategoryEdit.vue')},
+      {path: '/categories/list', component: () => import( '../views/Category/CategoryList.vue')},
+      {path: '/categories/edit/:id', component: () => import( '../views/Category/CategoryEdit.vue'), props: true},
+
+      {path: '/items/create', component: () => import( '../views/Item/ItemEdit.vue')},
+      {path: '/items/list', component: () => import( '../views/Item/ItemList.vue')},
+      {path: '/items/edit/:id', component: () => import( '../views/Item/ItemEdit.vue'), props: true},
+
+      {path: '/heroes/create', component: () => import( '../views/Hero/HeroEdit.vue')},
+      {path: '/heroes/list', component: () => import( '../views/Hero/HeroList.vue')},
+      {path: '/heroes/edit/:id', component: () => import( '../views/Hero/HeroEdit.vue'), props: true},
+    ]
   },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })
