@@ -16,6 +16,7 @@
                 class="avatar-uploader"
                 :action="$http.defaults.baseURL+'/upload'"
                 :show-file-list="false"
+                :headers="getAuthHeaders()"
                 :on-success="res => item.image = res.url">
                 <img v-if="item.image" :src="item.image" class="avatar">
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>

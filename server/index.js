@@ -2,6 +2,8 @@ const express = require("express")
 
 const app = express()
 
+app.set('secret','asdfcxvsdfads')
+
 //使用json中间件
 app.use(express.json())
 //解决跨域问题

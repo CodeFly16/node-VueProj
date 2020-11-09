@@ -1,14 +1,9 @@
 <template>
   <el-container style="height: 100vh; border: 1px solid #eee">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-      <el-menu router :default-openeds="['1']">
+      <el-menu router :default-openeds="['3']" unique-opened :default-active="$route.path">
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-message"></i>内容管理</template>
-          <el-menu-item-group>
-            <template slot="title">分类</template>
-            <el-menu-item index="/categories/create">新建分类</el-menu-item>
-            <el-menu-item index="/categories/list">分类列表</el-menu-item>
-          </el-menu-item-group>
 
           <el-menu-item-group>
             <template slot="title">物品</template>
@@ -27,11 +22,26 @@
             <el-menu-item index="/articles/create">新建文章</el-menu-item>
             <el-menu-item index="/articles/list">文章列表</el-menu-item>
           </el-menu-item-group>
-
+        </el-submenu>
+        <el-submenu index="2">
+          <template slot="title"><i class="el-icon-message"></i>运营管理</template>
           <el-menu-item-group>
             <template slot="title">广告位</template>
             <el-menu-item index="/ads/create">新建广告位</el-menu-item>
             <el-menu-item index="/ads/list">广告位列表</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="3">
+          <template slot="title"><i class="el-icon-message"></i>系统管理</template>
+          <el-menu-item-group>
+            <template slot="title">分类</template>
+            <el-menu-item index="/categories/create">新建分类</el-menu-item>
+            <el-menu-item index="/categories/list">分类列表</el-menu-item>
+          </el-menu-item-group>
+          <el-menu-item-group>
+            <template slot="title">管理员</template>
+            <el-menu-item index="/admin_users/create">新建管理员</el-menu-item>
+            <el-menu-item index="/admin_users/list">管理员列表</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
@@ -39,12 +49,10 @@
 
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
-        <el-dropdown>
+        <el-dropdown @command="handleCommand">
           <i class="el-icon-setting" style="margin-right: 15px"></i>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
+            <el-dropdown-item command="a">注销账号</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
         <span>王小虎</span>
@@ -69,14 +77,23 @@
 <script>
   export default {
     data() {
-      const item = {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      };
-      return {
-        tableData: Array(20).fill(item)
+      return {}
+    },
+    methods: {
+      handleCommand(command) {
+        console.log(command)
+        if (command === 'a') {
+          this.logOut()
+        }
+      },
+      logOut() {
+        this.$message.success("注销成功")
+        localStorage.removeItem("token")
+        console.log(localStorage.getItem("token"))
+        this.$router.push("/login")
       }
+      ,
     }
-  };
+  }
+  ;
 </script>
