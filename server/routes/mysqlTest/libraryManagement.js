@@ -102,7 +102,6 @@ module.exports = app => {
     })
   })
 
-
   app.use("/mysqlTest/api/rest/", router)
 
   //错误处理函数

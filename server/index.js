@@ -11,8 +11,12 @@ app.set('secret', 'asdfcxvsdfads')
 app.use(express.json())
 //解决跨域问题
 app.use(require("cors")())
+
 //指明该路由下文件为静态资源
 app.use('/uploads', express.static(__dirname + '/uploads'))
+app.use('/admin', express.static(__dirname + '/admin'))
+app.use('/dbadmin', express.static(__dirname + '/dbadmin'))
+
 
 //路由接口
 require('./routes/admin/index')(app)
