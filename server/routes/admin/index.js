@@ -1,13 +1,15 @@
 module.exports = app => {
   const express = require("express")
-
-  const jwt = require('jsonwebtoken')
-  const AdminUser = require("../../models/AdminUser")
-  const assert = require("http-assert")
-
   const router = express.Router({
     mergeParams: true
   })
+
+  //权限token
+  const jwt = require('jsonwebtoken')
+  const AdminUser = require("../../models/AdminUser")
+  //异常处理包
+  const assert = require("http-assert")
+
 
   //登录校验中间件
   const authMiddleware = require('../../middleware/auth')
