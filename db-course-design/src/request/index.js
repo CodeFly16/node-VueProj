@@ -3,8 +3,8 @@ import Vue from 'vue'
 import router from "../router/index";
 
 const http = axios.create({
-  // baseURL: process.env.VUE_APP_API_URL || '/mysqlTest/api',
-  baseURL: "http://localhost:3000/mysqlTest/api"
+  baseURL: process.env.VUE_APP_API_URL || '/mysqlTest/api',
+  // baseURL: "http://localhost:3000/mysqlTest/api"
 })
 
 http.interceptors.request.use(config => {
