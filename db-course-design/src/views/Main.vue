@@ -155,6 +155,7 @@ export default {
   },
   created() {
     if (this.$route.path !== '/main') {
+
       let path = this.$route.path.split('/')
       this.defaultSelectedKeys = ['/' + path[2]]
       this.defaultOpenKeys = ['/' + path[1]]
