@@ -24,6 +24,17 @@ const routes = [
       {path: '/testSix/readerCategory', component: () => import( '../views/testSix/ReaderCategory.vue')},
       {path: '/testSix/libraryManagement', component: () => import( '../views/testSix/LibraryManagement.vue')},
       {path: '/testSix/readerManagement', component: () => import( '../views/testSix/ReaderManagement.vue')},
+
+      {path: '/readerManagement/libraryCardManagement', component: () => import( '../views/readerManagement/libraryCardManagement.vue')},
+
+      {path: '/bookManagement/bookCatalog', component: () => import( '../views/bookManagement/bookCatalog.vue')},
+      {path: '/bookManagement/bookMaintenance', component: () => import( '../views/bookManagement/bookMaintenance.vue')},
+
+      {path: '/borrowManagement/borrowManagement', component: () => import( '../views/borrowManagement/borrowManagement.vue')},
+
+      {path: '/userManagement/userAuthority', component: () => import( '../views/userManagement/userAuthority.vue')},
+
+
     ]
   }
   /* {
@@ -49,6 +60,7 @@ VueRouter.prototype.push = function push(location) {
 
 router.beforeEach((to, from, next) => {
   const tokenStr = localStorage.getItem('token')
+  if (tokenStr && ['/', '/login'].indexOf(to.path) > -1) return next('/main')
   if (to.meta.isPublic) return next()
   if (!to.meta.isPublic && !tokenStr && ['/', '/login'].indexOf(to.path) === -1) {
     Vue.prototype.$message.error("请先登录")

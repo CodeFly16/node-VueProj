@@ -18,7 +18,7 @@
               @click="select">
         <template v-for="item in menu">
           <a-sub-menu :key="item.path" v-if="item.children.length!==0">
-            <span slot="title"><a-icon type="user"/><span>{{ item.title }}</span></span>
+            <span slot="title"><a-icon :type="item.icon"/><span>{{ item.title }}</span></span>
             <template v-for="childItem in item.children">
               <a-menu-item :key="childItem.path">
                 {{ childItem.title }}
@@ -74,6 +74,7 @@ export default {
         {
           path: '/testSix',
           title: '上机六',
+          icon: 'windows',
           children: [
             {
               title: '读者类别',
@@ -90,6 +91,59 @@ export default {
               path: '/readerManagement',
               children: []
             }
+          ]
+        },
+        {
+          path: '/readerManagement',
+          title: '读者管理',
+          icon: 'user',
+          children: [
+            {
+              title: '借书证管理',
+              path: '/libraryCardManagement',
+              children: []
+            },
+          ]
+        },
+        {
+          path: '/bookManagement',
+          title: '图书管理',
+          icon: 'bank',
+          children: [
+            {
+              title: '图书编目',
+              path: '/bookCatalog',
+              children: []
+            },
+            {
+              title: '图书维护',
+              path: '/bookMaintenance',
+              children: []
+            },
+          ]
+        },
+        {
+          path: '/borrowManagement',
+          title: '借阅管理',
+          icon: 'bulb',
+          children: [
+            {
+              title: '借阅管理',
+              path: '/borrowManagement',
+              children: []
+            },
+          ]
+        },
+        {
+          path: '/userManagement',
+          title: '用户管理',
+          icon: 'block',
+          children: [
+            {
+              title: '用户权限管理',
+              path: '/userAuthority',
+              children: []
+            },
           ]
         },
       ],
