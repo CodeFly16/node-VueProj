@@ -13,7 +13,7 @@ const schema = new mongoose.Schema({
   rdPhoto: {type: String},//读者照片
   rdStatus: {type: String},//证件状态
   rdPwd: {type: String},//读者密码
-  rdAdminRoles: {type: String},//读者系统角色
+  rdAdminRoles: {type: String},//读者角色类型
 })
 
 module.exports = mongoose.model('ReaderInfo', schema)

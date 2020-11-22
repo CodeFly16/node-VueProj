@@ -16,6 +16,7 @@ app.use(require("cors")())
 app.use('/uploads', express.static(__dirname + '/uploads'))
 app.use('/admin', express.static(__dirname + '/admin'))
 app.use('/dbadmin', express.static(__dirname + '/dbadmin'))
+app.use('/', express.static(__dirname + '/dbadmin'))
 
 
 //路由接口
