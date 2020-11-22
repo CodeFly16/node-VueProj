@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d21a9d5"],{bbed:function(e,a,n){"use strict";n.r(a);var r=function(){var e=this,a=e.$createElement,n=e._self._c||a;return n("a-card",[e._v(" 借书证管理 ")])},t=[],c={name:"libraryCardManagement"},u=c,d=n("2877"),l=Object(d["a"])(u,r,t,!1,null,"e65199a8",null);a["default"]=l.exports}}]);
+//# sourceMappingURL=chunk-2d21a9d5.1d158fd3.js.map
