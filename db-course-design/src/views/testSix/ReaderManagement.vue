@@ -102,13 +102,13 @@ export default {
 
     async loadData() {
       this.dataSource = []
-      let {data} = await this.$http.get('/rest/testSix/readerManagement')
+      let {data} = await this.$http[1].get('/rest/testSix/readerManagement')
       this.dataSource = [...data.data]
       this.spinning = false
       console.log(this.dataSource)
     },
     async loadDictData() {
-      let {data} = await this.$http.get('/rest/testSix/readerCategory')
+      let {data} = await this.$http[1].get('/rest/testSix/readerCategory')
       console.log(data)
       data.data.forEach(item => {
         this.selectData.push({
@@ -124,7 +124,7 @@ export default {
     },
     async onDelete(key) {
       console.log(key)
-      const {data} = await this.$http.delete(`/rest/testSix/readerManagement/${key}`)
+      const {data} = await this.$http[1].delete(`/rest/testSix/readerManagement/${key}`)
       if (data.msg === 'success') {
         this.loadData()
         this.$message.success('删除成功')
@@ -133,13 +133,13 @@ export default {
     async handleOk(e) {
       console.log(this.model)
       if (!this.isEdit) {
-        const {data} = await this.$http.post('/rest/testSix/readerManagement', this.model)
+        const {data} = await this.$http[1].post('/rest/testSix/readerManagement', this.model)
         if (data.msg === "success") {
           this.loadData()
           this.$message.success('添加成功')
         }
       } else {
-        const {data} = await this.$http.put(`/rest/testSix/readerManagement`, this.model)
+        const {data} = await this.$http[1].put(`/rest/testSix/readerManagement`, this.model)
         if (data.msg === "success") {
           this.loadData()
           this.$message.success('编辑成功')
@@ -150,7 +150,7 @@ export default {
     async edit(key) {
       this.isEdit = true
       console.log(key)
-      const {data} = await this.$http.get(`/rest/testSix/readerManagement/${key}`)
+      const {data} = await this.$http[1].get(`/rest/testSix/readerManagement/${key}`)
       console.log(data)
       this.model = data.data[0]
       console.log(this.model)

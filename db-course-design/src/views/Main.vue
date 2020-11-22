@@ -103,6 +103,11 @@ export default {
               path: '/libraryCardManagement',
               children: []
             },
+            {
+              title: '读者类型',
+              path: '/readerType',
+              children: []
+            },
           ]
         },
         {

@@ -12,7 +12,6 @@ const schema = new mongoose.Schema({
   rdDateReg: {type: String},//读者办证日期
   rdPhoto: {type: String},//读者照片
   rdStatus: {type: String},//证件状态
-  rdBorrowQty: {type: String},//读者类别
   rdPwd: {type: String},//读者密码
   rdAdminRoles: {type: String},//读者系统角色
 })

@@ -82,7 +82,7 @@ export default {
   methods: {
     async onDelete(key) {
       console.log(key)
-      const {data} = await this.$http.delete(`/rest/testSix/readerCategory/${key}`)
+      const {data} = await this.$http[1].delete(`/rest/testSix/readerCategory/${key}`)
       if (data.msg === 'success') {
         this.loadData()
         this.$message.success('删除成功')
@@ -90,7 +90,7 @@ export default {
     },
     async loadData() {
       this.dataSource = []
-      let {data} = await this.$http.get('/rest/testSix/readerCategory')
+      let {data} = await this.$http[1].get('/rest/testSix/readerCategory')
       data.data.forEach(item => {
         this.dataSource.push({
           key: item.rdType,
@@ -110,13 +110,13 @@ export default {
     async handleOk(e) {
       console.log(this.model)
       if (!this.isEdit) {
-        const {data} = await this.$http.post('/rest/testSix/readerCategory', this.model)
+        const {data} = await this.$http[1].post('/rest/testSix/readerCategory', this.model)
         if (data.msg === "success") {
           this.loadData()
           this.$message.success('添加成功')
         }
       } else {
-        const {data} = await this.$http.put(`/rest/testSix/readerCategory/${this.model.rdType}`, this.model)
+        const {data} = await this.$http[1].put(`/rest/testSix/readerCategory/${this.model.rdType}`, this.model)
         if (data.msg === "success") {
           this.loadData()
           this.$message.success('编辑成功')
@@ -127,7 +127,7 @@ export default {
     async edit(key) {
       this.isEdit = true
       console.log(key)
-      const {data} = await this.$http.get(`/rest/testSix/readerCategory/${key}`)
+      const {data} = await this.$http[1].get(`/rest/testSix/readerCategory/${key}`)
       console.log(data)
       this.model = data.data[0]
       console.log(this.model)

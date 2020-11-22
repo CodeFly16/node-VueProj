@@ -26,6 +26,7 @@ const routes = [
       {path: '/testSix/readerManagement', component: () => import( '../views/testSix/ReaderManagement.vue')},
 
       {path: '/readerManagement/libraryCardManagement', component: () => import( '../views/readerManagement/libraryCardManagement.vue')},
+      {path: '/readerManagement/readerType', component: () => import( '../views/readerManagement/readerType.vue')},
 
       {path: '/bookManagement/bookCatalog', component: () => import( '../views/bookManagement/bookCatalog.vue')},
       {path: '/bookManagement/bookMaintenance', component: () => import( '../views/bookManagement/bookMaintenance.vue')},

@@ -22,7 +22,6 @@
 
 <script>
 // @ is an alias to /src
-import axios from 'axios'
 
 export default {
   name: 'Home',
@@ -33,7 +32,7 @@ export default {
   },
   methods: {
     async login() {
-      const res = await axios.post('http://47.98.225.213/admin/api/login', this.model)
+      const res = await this.$http[0].post('http://47.98.225.213/admin/api/login', this.model)
       console.log(res)
       localStorage.token = res.data.token
       this.$router.push('/main')
