@@ -68,9 +68,6 @@
                          v-model="model.rdDateReg"
                          @change="setDate">
           </a-date-picker>
-          <a-input placeholder="请输入读者办证日期"
-                   v-model="model.rdDateReg">
-          </a-input>
         </a-form-item>
 
         <a-form-item label="照片">
