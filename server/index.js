@@ -21,6 +21,8 @@ app.use('/', express.static(__dirname + '/dbadmin'))
 
 //路由接口
 require('./routes/admin/index')(app)
+require('./routes/admin/search')(app)
+require('./routes/admin/borrowBook')(app)
 require('./routes/mysqlTest/readerCategory')(app)
 require('./routes/mysqlTest/libraryManagement')(app)
 require('./routes/mysqlTest/readerManagement')(app)

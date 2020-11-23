@@ -5,7 +5,7 @@ const mongoose = require("mongoose")
 const schema = new mongoose.Schema({
   rdID: String,//读者序号
   bkID: String,//图书序号
-  ldContinueTimes: Number,//续借次数
+  ldContinueTimes: {type: Number, default: 0},//续借次数
   ldDateOut: Date,//借书日期
   ldDateRetPlan: Date,//应还日期
   ldDateRetAct: Date,//实际还书日期

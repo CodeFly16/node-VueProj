@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c8bf7"],{"55cd":function(e,n,t){"use strict";t.r(n);var c=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("a-card",[e._v(" 用户权限管理 ")])},r=[],u={name:"userAuthority"},a=u,s=t("2877"),o=Object(s["a"])(a,c,r,!1,null,"1375b638",null);n["default"]=o.exports}}]);
-//# sourceMappingURL=chunk-2d0c8bf7.386e92d5.js.map

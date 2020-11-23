@@ -1,11 +1,11 @@
 module.exports = {
-  //本地
+ /* //本地
   host: 'localhost',
-  password: '123456',
+  password: '123456',*/
 
-  /*//线上
+  //线上
   host: '47.98.225.213',
-  password: 'Wk19961220',*/
+  password: 'Wk19961220',
 
   user: 'root',
   port: '3306',
