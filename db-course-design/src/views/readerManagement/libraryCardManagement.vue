@@ -8,10 +8,10 @@
         <template slot="operation" slot-scope="text, record">
           <a-popconfirm
               v-if="dataSource.length"
-              title="确认删除吗"
+              title="确认注销吗"
               @confirm="() => onDelete(record._id)">
             <a-button type="danger" style="margin-left: 10px">
-              删除
+              注销
             </a-button>
           </a-popconfirm>
           <a-button style="margin-left: 10px" @click="edit(record._id)">编辑</a-button>
@@ -21,6 +21,11 @@
 
     <a-modal v-model="visible" title="添加借书证" @ok="handleOk" ok-text="确认" cancel-text="取消">
       <a-form :label-col=labelCol :wrapper-col="wrapperCol">
+        <a-form-item label="学号">
+          <a-input placeholder="请输入读者学号"
+                   v-model="model.rdCard">
+          </a-input>
+        </a-form-item>
         <a-form-item label="姓名">
           <a-input placeholder="请输入读者姓名"
                    v-model="model.rdName">
@@ -42,7 +47,7 @@
           <a-select :default-value="model.rdType" style="width:100%"
                     v-model="model.rdType"
                     placeholder="请选择读者类别">
-            <a-select-option :value="item.rdType" v-for="item in rdTypeList">
+            <a-select-option :value="item.rdType" v-for="item in rdTypeList" :key="item">
               {{ item.rdType }}
             </a-select-option>
           </a-select>
@@ -77,7 +82,7 @@
               class="avatar-uploader"
               :headers="{Authorization:'Bearer ' + token}"
               :show-upload-list="false"
-              :action="$http[0].defaults.baseURL+'/upload'"
+              action="http://47.98.225.213/admin/api/upload"
               @change="uploadPic">
             <img v-if="model.rdPhoto" :src="model.rdPhoto" alt="avatar" style="width: 100%"/>
             <div v-else>
@@ -92,7 +97,7 @@
           <a-select :default-value="model.rdStatus?model.rdStatus:'正常'" style="width:100%"
                     v-model="model.rdStatus"
                     placeholder="请选择读者证件状态">
-            <a-select-option :value="item" v-for="item in status">
+            <a-select-option :value="item" v-for="item in status" :key="item">
               {{ item }}
             </a-select-option>
           </a-select>
@@ -105,7 +110,7 @@
           <a-select :default-value="model.rdAdminRoles?model.rdAdminRoles:'读者'" style="width:100%"
                     v-model="model.rdAdminRoles"
                     placeholder="请选择角色类型">
-            <a-select-option :value="item" v-for="item in rdAdminType">
+            <a-select-option :value="item" v-for="item in rdAdminType" :key="item">
               {{ item }}
             </a-select-option>
           </a-select>
@@ -128,6 +133,10 @@ export default {
       dataSource: [],
       cateList: [],
       columns: [
+        {
+          title: '学号',
+          dataIndex: 'rdCard',
+        },
         {
           title: '姓名',
           dataIndex: 'rdName',

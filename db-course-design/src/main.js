@@ -7,6 +7,11 @@ import 'ant-design-vue/dist/antd.css'
 
 Vue.use(Antd)
 
+import moment from "vue-moment"
+
+Vue.use(moment); //实例
+
+
 Vue.config.productionTip = false
 
 import http from "./request/index"

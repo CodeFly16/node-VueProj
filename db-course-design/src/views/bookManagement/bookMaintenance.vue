@@ -53,7 +53,7 @@
           <a-select :default-value="model.bkCatalog" style="width:100%"
                     v-model="model.bkCatalog"
                     placeholder="请选择分类">
-            <a-select-option :value="item.cateNumber" v-for="item in cateList">
+            <a-select-option :value="item.cateNumber" v-for="item in cateList" :key="item">
               {{ item.cateName }}
             </a-select-option>
           </a-select>
@@ -62,7 +62,7 @@
           <a-select :default-value="model.bkLanguage" style="width:100%"
                     v-model="model.bkLanguage"
                     placeholder="请选择语言">
-            <a-select-option :value="item.value" v-for="item in language">
+            <a-select-option :value="item.value" v-for="item in language" :key="item">
               {{ item.label }}
             </a-select-option>
           </a-select>
@@ -86,7 +86,7 @@
               class="avatar-uploader"
               :headers="{Authorization:'Bearer ' + token}"
               :show-upload-list="false"
-              :action="$http[0].defaults.baseURL+'/upload'"
+              action="http://47.98.225.213/admin/api/upload'"
               @change="uploadPic">
             <img v-if="model.bkCover" :src="model.bkCover" alt="avatar" style="width: 100%"/>
             <div v-else>
@@ -101,7 +101,7 @@
           <a-select :default-value="model.bkStatus?model.bkStatus:'在馆'" style="width:100%"
                     v-model="model.bkStatus"
                     placeholder="请选择图书状态">
-            <a-select-option :value="item" v-for="item in status">
+            <a-select-option :value="item" v-for="item in status" :key="item">
               {{ item }}
             </a-select-option>
           </a-select>
